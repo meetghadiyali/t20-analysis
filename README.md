@@ -1,8 +1,8 @@
 # T20 Cricket Game Analysis
 
-What is Cricket? [Short video by International Cricket Council (ICC)](https://www.youtube.com/watch?v=g-beFHld19c)
+What is Cricket? [Short fun video by International Cricket Council (ICC)](https://www.youtube.com/watch?v=g-beFHld19c)
 
-* Analysis the Indian Cricket Team's 2018 and 2019 International 20-over Cricket matches. 
+* Analysis of the Indian Cricket Team's 2018 and 2019 International 20-over Cricket matches. 
 * Used a different approach of analyzing commentary (word descriptions) instead of plain numerical data. 
 * Plot graphs to answer various questions pertaning to the matches and made the appropriate intferences. 
 * Used Jupyter Notebook for the analysis. 
