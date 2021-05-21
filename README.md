@@ -19,7 +19,7 @@
 
 # ANALYSIS
 
-#### Total number of 20-over (T20) matches India played in 2018 and 2019
+### Total number of 20-over (T20) matches India played in 2018 and 2019
 ```python 
 batting_df=df[df['batting_team']=='ind']
 num = len(batting_df['match'].unique())
@@ -31,7 +31,7 @@ Total no. of matches India played: 28
 
 ---
 
-#### No of T20s India played each year
+### No of T20s India played each year
 ```python
 num_of_matches=batting_df.groupby(['year']).apply(lambda x:x['match'].nunique()).reset_index(name='No. of Matches')
 fig = num_of_matches.plot.bar(x="year", y="No. of Matches", rot=0, title="No. of T20s India Played",figsize=(10,8)).get_figure()
@@ -44,7 +44,7 @@ India played more T20's in 2018 than compared to 2019. This is due to the ICC Cr
 
 ---
 
-#### Team Average Score (Batting first and batting second) 
+### Team Average Score (Batting first and batting second) 
 ```python 
 score = batting_df.groupby(['year','match','innings_no']).apply(lambda x:x['runs'].sum()).reset_index(name='score')
 print("Batting First Average score:",np.median(score[score['innings_no']==1]['score'].values))
@@ -56,7 +56,7 @@ Batting Second Average score: 157.5
 
 ---
 
-#### Team Average Innings wise. 
+### Team Average Innings wise. 
 ```python
 #split into innings
 first_innings_df=score[score['innings_no']==1]
@@ -83,5 +83,44 @@ fig= dataFrame.plot.bar(rot=0, title="Team Average",figsize=(10,8)).get_figure()
 1. The highest batting first average was close to 180 in 2018. On an average, India scored 180+ runs while batting first    in 2018.  So, we can infer that India had the **best batting** line-up during 2018.
 2. Batting Second average is always less than the batting first average over all the years. From this, we can infer that    the target set by the Indian team is higher than the opponents.
 
+---
 
+### Overall Winning % (Batting first and Batting second): 
+```python
+grp = batting_df.groupby('match').first().reset_index()
+matches_won = grp[grp['innings_no'] == grp['result']]
+print("Over all Winning %:",(matches_won.shape[0]/num)*100)
+
+#Batting first & second
+first  = grp[grp['innings_no'] == 1]
+second = grp[grp['innings_no'] == 2]
+
+#Batting first winning %
+won1 = first[first['innings_no'] == first['result']]
+print("Batting First Winning % :",(won1.shape[0]/first.shape[0])*100)
+
+#Batting secong winning %
+won2 = second[second['innings_no'] == second['result']]
+print("Batting Second Winning % :",(won2.shape[0]/second.shape[0])*100)
+```
+###### Output:
+Over all Winning %: 67.85714285714286 
+Batting First Winning % : 50.0
+Batting Second Winning % : 85.71428571428571
+
+---
+
+### Winning % against different teams: 
+```python
+df1 = grp.groupby('bowling_team').apply(lambda x:x.shape[0]).reset_index(name='no')
+df2=grp.groupby('bowling_team').apply(lambda x: x[x['innings_no']==x['result']].shape[0]).reset_index(name='won')
+df2['Win %']=df2['won']/df1['no']
+fig=df2.plot.bar(x="bowling_team", y="Win %", rot=0, title="Win % against different teams",figsize=(10,8)).get_figure() #weighted
+```
+###### Output:
+![](https://github.com/meetghadiyali/t20-analysis/blob/main/win_diff_temas.png)
+
+*Inference:*
+1. India wins almost every match when playing against **Bangladesh.**
+2. India won **ZERO** matches against **Australia** in 2018 and 2019.
 
