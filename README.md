@@ -4,7 +4,7 @@ What is Cricket? [Short fun video by International Cricket Council (ICC)](https:
 
 * Analysis of the Indian Cricket Team's 2018 and 2019 International 20-over Cricket matches. 
 * Used a different approach of analyzing commentary (word descriptions) instead of plain numerical data. 
-* Plot graphs to answer various questions pertaning to the matches and made the appropriate intferences. 
+* Plotted graphs to answer various questions pertaning to the matches and made the appropriate inferences. 
 * Used Jupyter Notebook for the analysis. 
 * Plotted Bar Graphs for the analysis. 
 
@@ -390,3 +390,5 @@ fig = dataFrame.plot.bar(rot=0, title="Avg no. of balls to score boundary(overs 
 1. India clears 4 for every over in the power play and the last 5 overs. 
 2. Team India smashes only 1 six in power play as the batsmen concede 24+ balls for a six. 
 
+
+### Thank you. 
