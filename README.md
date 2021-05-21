@@ -34,7 +34,7 @@ Total no. of matches India played: 28
 
 ---
 
-### No of T20s India played each year
+### No of T20s India played in 2018 and 2019:
 ```python
 num_of_matches=batting_df.groupby(['year']).apply(lambda x:x['match'].nunique()).reset_index(name='No. of Matches')
 fig = num_of_matches.plot.bar(x="year", y="No. of Matches", rot=0, title="No. of T20s India Played",figsize=(10,8)).get_figure()
@@ -54,8 +54,8 @@ print("Batting First Average score:",np.median(score[score['innings_no']==1]['sc
 print("Batting Second Average score:",np.median(score[score['innings_no']==2]['score'].values))
 ```
 ###### Output:
-Batting First Average score: 183.0
-Batting Second Average score: 157.5
+   Batting First Average score: 183.0
+   Batting Second Average score: 157.5
 
 ---
 
@@ -83,8 +83,8 @@ fig= dataFrame.plot.bar(rot=0, title="Team Average",figsize=(10,8)).get_figure()
 ![](https://github.com/meetghadiyali/t20-analysis/blob/main/team_average.png)
 
 *Inference:*
-1. The highest batting first average was close to 180 in 2018. On an average, India scored 180+ runs while batting first    in 2018.  So, we can infer that India had the **best batting** line-up during 2018.
-2. Batting Second average is always less than the batting first average over all the years. From this, we can infer that    the target set by the Indian team is higher than the opponents.
+1. The highest batting first average was close to 180 in 2018. On an average, India scored 180+ runs while batting        first in 2018.  So, we can infer that India had the **best batting** line-up during 2018.
+2. Batting Second average is always less than the batting first average over all the years. From this, we can infer        that the target set by the Indian team is higher than the opponents.
 
 ---
 
@@ -107,9 +107,9 @@ won2 = second[second['innings_no'] == second['result']]
 print("Batting Second Winning % :",(won2.shape[0]/second.shape[0])*100)
 ```
 ###### Output:
-Over all Winning %: 67.85714285714286 
-Batting First Winning % : 50.0
-Batting Second Winning % : 85.71428571428571
+ Over all Winning %: 67.85714285714286 
+ Batting First Winning % : 50.0
+ Batting Second Winning % : 85.71428571428571
 
 ---
 
@@ -139,7 +139,7 @@ sr=(np.sum(batting_df['runs'].values)/batting_df.shape[0])*100
 print("Strike rate of Indian team:",sr)
 ```
 ###### Output:
-Strike rate of Indian team: 141.7989417989418
+ Strike rate of Indian team: 141.7989417989418
 
 ---
 
@@ -187,7 +187,7 @@ axes = dataFrame.plot.bar(rot=0, title="Team India Batting Strike (Overs wise)")
 ![](https://github.com/meetghadiyali/t20-analysis/blob/main/batting_sr.png) 
 
 *Inference:*
-1. The strike rate of the Indian team reaches around **160+** in the last 5 overs. And around **130+** in power play and middle overs.
+1. The strike rate of the Indian team reaches around **160+** in the last 5 overs. And around **130+** in power play      and middle overs.
 2. HIGHER THE BETTER. 
 
 ---
@@ -326,8 +326,8 @@ print("Avg no. of balls to hit 4:",batting_df.shape[0]/batting_df['runs'].value_
 print("Avg no. of balls to hit 6:",batting_df.shape[0]/batting_df['runs'].value_counts()[6])
 ```
 ###### Output:
-Avg no. of balls to hit 4: 9.120643431635388
-Avg no. of balls to hit 6: 16.84158415841584
+ Avg no. of balls to hit 4: 9.120643431635388
+ Avg no. of balls to hit 6: 16.84158415841584
 
 ---
 
