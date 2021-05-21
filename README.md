@@ -6,11 +6,22 @@
 * Used Jupyter Notebook for the analysis. 
 
 
-# Why using commentary (word description of the game) instead of numerical data as input? 
+## Why using commentary (word description of the game) instead of numerical data as input? 
 
 * Commentary about the game gives lot of interesting insights otther than the usual runs and wickets. 
-
-
 * This was a desciptive sports analysis.
 * I summarized the sports data to come up with important statistics. 
+
+
+
+# ANALYSIS
+
+```python 
+batting_df=df[df['batting_team']=='ind']
+num = len(batting_df['match'].unique())
+print("Total no. of matches India played:",num)
+```
+### Output:
+Total no. of matches India played: 28
+
 
