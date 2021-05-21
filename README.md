@@ -14,7 +14,11 @@
 
 
 
+
+
+
 # ANALYSIS
+
 
 ```python 
 batting_df=df[df['batting_team']=='ind']
@@ -25,3 +29,14 @@ print("Total no. of matches India played:",num)
 Total no. of matches India played: 28
 
 
+
+
+
+```python
+num_of_matches=batting_df.groupby(['year']).apply(lambda x:x['match'].nunique()).reset_index(name='No. of Matches')
+fig = num_of_matches.plot.bar(x="year", y="No. of Matches", rot=0, title="No. of T20s India Played",figsize=(10,8)).get_figure()
+```
+### Output: 
+![](https://github.com/meetghadiyali/t20-analysis/blob/main/t20_played.png)
+#### Inference: 
+India played more T20's in 2018 than compared to 2019. This is due to the ICC Cricket World Cup in 2019. 
