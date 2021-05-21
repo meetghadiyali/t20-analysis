@@ -38,5 +38,10 @@ fig = num_of_matches.plot.bar(x="year", y="No. of Matches", rot=0, title="No. of
 ```
 ###### Output: 
 ![](https://github.com/meetghadiyali/t20-analysis/blob/main/t20_played.png)
-######## Inference: 
+*Inference:*
 India played more T20's in 2018 than compared to 2019. This is due to the ICC Cricket World Cup in 2019. 
+
+---
+
+
+
